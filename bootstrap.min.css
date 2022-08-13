@@ -642,7 +642,9 @@ progress {
     padding-right: var(--bs-gutter-x, .75rem);
     padding-left: var(--bs-gutter-x, .75rem);
     margin-right: auto;
-    margin-left: auto
+    margin-left: auto;
+    text-shadow: 2px yellowgreen;
+
 }
 
 @media (min-width:576px) {
@@ -3132,7 +3134,7 @@ textarea.form-control.is-invalid {
     -moz-user-select: none;
     user-select: none;
     background-color: transparent;
-    border: 1px solid transparent;
+    border: 0px solid transparent;
     padding: .375rem .75rem;
     font-size: 1rem;
     border-radius: .25rem;
@@ -3684,7 +3686,9 @@ fieldset:disabled .btn {
 
 .btn-outline-warning {
     color: #ffc107;
-    border-color: #ffc107
+    border-color: #ffc107;
+    align-items: ;
+    
 }
 
 .btn-outline-warning:hover {

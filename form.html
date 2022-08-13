@@ -28,8 +28,7 @@ body{
 }
 
 .container {
-    align-content: center;
-
+    align-content: left;
 }
 
 p   {
@@ -38,48 +37,56 @@ p   {
     color: #ffd900;
     background-color: purple;
     display: inline-block;
-
 }
 
 p:hover {
     color: blueviolet;
     background-color: #ffd900;
-    
 }
 
  #payment {
     color: rgba(255 218 0 .5)
-
 }
 
+.material-icons {
+    color: #ffd900;
+}
+
+
+
+input:focus {
+  background-color: #ffd900;
+}
 
 
 </style>
 <body>
 <div class="container">
-<form method="POST" action="http://localhost:3000/profile">
+<form method="GET" action="http://localhost:3000/profile">
 
 <h1 class="header">one donation, one <p class="love">love</P> for bally</h1>
-<br>
-<br>
-<div class=""form-group row>
-<label for="first_name"></label>First Name</label><br>
-<input type="text" id="first_name" name="first_name" placeholder="John">
+<br><br>
+    <div class=""form-group row>
+    <label for="first_name"></label>First Name</label><br>
+<input type="text" id="first_name" name="first_name" placeholder="John" required>
+    </div>
+    <br>
+    <div>
+    <label for="last_name">Last Name</label><br>
+    <input type="text" id="last_name" name="last_name" placeholder="Smith">
+    </div>
+    <br>
+    <div>
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email" placeholder="John.smith@email.com" required>
 </div>
 <br>
-<div>
-<label for="last_name">Last Name</label><br>
-<input type="text" id="last_name" name="last_name" placeholder="Smith">
-</div>
-<br>
-<div>
-<label for="email">Email</label><br>
-<input type="email" id="email" name="email" placeholder="John.smith@email.com">
-</div>
 <br>
 <br>
-<br>
-<label for="payment">Pay via </label>
+<label for="payment">
+    <span class="material-icons"><img src="icons/credit_card_black_24dp.svg">
+  
+</img></span>Pay via </label>
 
 <select id="payment">
     <a href="https://www.visa.co.nz/"><option value="visa">Visa</option></a>
@@ -93,19 +100,18 @@ p:hover {
 <input type="radio" name="comment" value="hey"> Subscribe to newsletter
 <br>
 <br>
-<input type="checkbox" name="checkbox">  
+<input type="checkbox" name="checkbox" required>  
         Agree to <a href=https://www.random.org/terms/2020-08-01 
                     style="text-decoration: none" 
                     target="_blank"
                     alt="terms and condition">
         Terms and Conditions</a>
-        <br>
-        <br>
 <br>
+<br>
+<br>
+<a href="https://google.com" target="_blank">
 
-<a href="https://www.theapollobox.com/product/sku1696906/large-squashy-cat-pillow?gclid=Cj0KCQjw_7KXBhCoARIsAPdPTfimJB3R3U9lRJSUzm4HD0V7JWm8K_8Rthkug7MSPpi0ZJIy8QJQ2-4aAtTYEALw_wcB" target="_blank">
-
-<button type="submit_button" class="btn btn-primary btn-lg">Send Love</button></a>
+<button type="submit" class="btn btn-primary btn-lg">Send Love</button></a>
 <br>
 <br>
 <a href="index.html"><button type="button" 

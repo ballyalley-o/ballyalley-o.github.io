@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bally alley O</title>
     <link href="bootstrap.min.css" 
     rel="stylesheet" 
@@ -11,93 +11,282 @@
   </head>
 <style>
 
-h1.style-me1, h1#style-me2 {
-  color: purple;
+div.style-me1, p#style-me2 {
+  color: #ffd900;
 } 
-h2, .p, .a {
+h2, .p {
     margin: 20px;
     padding: 20px;
     border: round 4px;
   }
-.title, .p, .a {
+p, .title  {
     text-align: center;
-    margin: 20px;
-    padding: 20px;
-    border: 2px;
+    margin: 50px;
+    padding: 50px;
+    border: none;
+    color: white;
+    display: inline;
   }
 
-.center, body{
+  body, .center {
     text-align: center;
-    background-image: url("bally_walk.gif");
+    background-image: url("");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position-x: 180px;
-    background-position-y: 520px;
-    background-size: 20%;
+    background-position: center;
+    background-size: contain;
+    z-index: +4;
   }
 
 .style-me1 {
     color: red;
+    font-family: cursive;
     font-weight: bolder;
     text-align: right;
     font-size: 100px;
     margin: 0 20px 0 0;
     position: absolute;
     left: 75vw;
-    top:25vh;
-   
+    top: 25vh;
   }
 
 #style-me2 {
     color: blue;
-    
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90px;
+    margin: 20px;
+    transition: .5s;
+
 }
 
-.title, .a {
-    text-align: center;
-    margin: 20px;
-    padding: 20px;
-    border: none;
-  }
-  </style>
-  <body>
-    
-    <nav class="navbar navbar-dark bg-dark">
-      <div class="container" a>
-        <div class="btn-group btn-group-lg" role="group" aria-label="...">...</div>
-        <div class="btn-group" role="group" aria-label="...">...</div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="...">...</div>
+#style-me2:hover {
+-webkit-text-stroke: 2px greenyellow ;
+color: transparent;
+}
 
-    </div>
+    
+
+.my-descendants-are-styled .my-children-are-styled:hover {
+  background-color: red;
+  color: white;
+}
+
+.my-descendants-are-styled .my-children-are-styled .baby {
+  background-color: red;
+  color: white;
+}
+.my-descendants-are-styled .my-children-are-styled .baby:hover {
+ background-color: ;
+  font-size: larger;
+ font-weight: bolder;
+}
+
+.one {
+ background-color: #ffd900;
+
+}
+.box {
+  margin: 4px;
+  padding: 2px;
+  height: 20vh;
+  width: 20vw;
+
+}
+
+a[data-tool-tip] {
+  position: relative;
+  
+}
+
+a[data-tool-tip]::before{
+  content: '';
+  position: relative;
+  
+}
+
+
+a[data-tool-tip]::after {
+  content: attr(data-tool-tip);
+  color: red;
+  font-size: inherit;
+  top: 0%;
+  bottom: 0%;
+  transform: scale(0);
+  transition: transform: ease-out 150ms;
+
+}
+
+a[data-tool-tip]:hover::after {
+  content: '';
+  transform: scale(1);
+  bottom: 100;
+ 
+}
+
+.ballywalk {
+  margin: 50px;
+
+}
+
+.backvid {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .backvid{
+    width: 100%;
+    height: auto;
+  }
+}
+  @media (max-aspect-ratio: 16/9) {
+  .backvid{
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+.something {
+  color: #fff;
+  text-align: center;
+  margin: 10rem;
+  font-size: 2.1rem;
+}
+
+.donate-btn {
+  position: relative;
+  padding: 50px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  border: 2px solid #fff;
+  text-align: center;
+  margin: 100px;
+  overflow: hidden;
+  background-color: transparent;
+  transition: .5s;
+  z-index: 3;
+}
+
+.donate-btn:hover {
+  padding: 50px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  border: 2px solid #ffd900;
+  text-align: center;
+  margin: 100px;
+  background-color: transparent;
+  transform: rotateY(360deg)
+
+}
+
+.donate-btn::before {
+  content: '';
+  background-color: #ffd900;
+  position: relative;
+  top: 100%;
+  transition: .5s;
+  background: #f00;
+  z-index: 2;
+  
+}
+
+.donate-btn:hover:before {
+ top: 0%;
+}
+
+.front, p {
+text-align: center;
+margin: 100px;
+}
+
+
+
+.nextsheet {
+  background-color: #ffd900;
+  background-repeat: no-repeat;
+  background-repeat: 100%;
+}
+
+.gorilla {
+  background-color: black;
+}
+
+
+
+
+  </style>
+<body class="gorilla">
+  <div>
+
+        <video autoplay loop muted plays-inline class="backvid">
+          <source src="gorilla.MP4" type="video/MP4">
+        </video>
+    
+    <nav>
+      <div class="container">
+        <div class="btn-group btn-group-lg" role="group" aria-label="..." style="background-color:transparent;">
+          <button type="button" class="btn btn-outline-warning">Home</button>
+          <button type="button" class="btn btn-outline-warning">About me</button>
+          <button type="button" class="btn btn-outline-warning">Gallery</button>
+
+       
+        </div>
+
+
+         <div class="btn-group">
+          <button type="button" class="btn btn-outline-warning dropdown-toggle" data-toggle="dropdown" 
+         aria-haspopup="true" aria-expanded="false" title="Contact us" >
+          <image src="icons/contact_page_white_24dp.svg"></image></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#"><i class="fab fa-facebook-f icon">Action</i></a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+        </div>
+
       <!-- Navbar content -->
     </nav>
-    <br>
-    <br>
-    <h1 id="style-me2" style="font-weight:bold"><i>bally-alley-o</i></h1>
-    <br />
-    <a href="form.html" alt="click the link to donate" style="text-decoration:none">
-      <button type="button" class="btn btn-primary btn-lg">Donate</button></a>
-    <br>
-    <br />
-    <br />
-    <br />
-    <br /><br />
-    <br />
-    <h2 value="sticky">this. is. something.</h2>
-    <br />
-    <br />
-    <h1 class="style-me1"><i>1989</i></h1>
-    <br />
-    <br />
-    <article><p>
-      <pre class="title">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem recusandae
-      cupiditate iure illo officia, odit animi repellat voluptates quae,
-      delectus, distinctio dolore provident in quam ratione ipsum odio! 
-      Est,atque?</pre>
-      <br>
+    <h1 class="front"><p id="style-me2"><i>bally-alley-o<sup>1989</sup></i></p></h1>
+  
+    <h2 class="something">this. is. something.
+    <a href="#" data-tool-tip="else" style="text-decoration:none;"></a> </h2>
+
+    <div class="donate">
+        <a href="form.html" alt="click the link to donate" style="text-decoration:none">
+          <button class="donate-btn" type="button">DONATE</button></a>
+        </div>
+    <div class="style-me1"></div>
+    
+  </div>
+    <article class="my-descendants-are-styled">
+      
+      <p class="container">
+      
+      <div class="my-children-are-styled">
 
       <pre class="title">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Autem recusandae
+      cupiditate iure illo officia, 
+      odit animi repellat voluptates quae,
+      delectus, 
+      <span class="baby">distinctio dolore provident in quam ratione ipsum odio! 
+      Est,atque?</span>
+    
+    
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem recusandae
         cupiditate iure illo officia, odit animi repellat voluptates quae,
         delectus, distinctio dolore provident in quam ratione ipsum odio! 
@@ -107,23 +296,20 @@ h2, .p, .a {
         Est,atque?Lorem ipsum, dolor sit amet consectetur       adipisicing elit. Autem recusandae
         cupiditate iure illo officia, odit animi   repellat voluptates quae,
         delectus, distinctio dolore provident in quam ratione ipsum odio! 
-        Est,atque?</pre>
-      
-    </p>
-    <br>
-    <br>
-     
-    <br>
-    <br>
-    <div>
-
+        Est,atque?</pre> </p>
+      </div>
     </div>
+    <div class="nextsheet"></div>
+  
   </article>
   </body>
   <script>
-
   </script>
-  <footer class="footer">Copyright Ⓒ </footer>
-  <br>
-  <br>
+
+  <div class="footer"><img src="bally_walk.gif" style="height:200px;"class="ballywalk">
+  
+  <footer>Copyright Ⓒ </footer>
+  </img>
+  </div>
+  <br><br>
 </html>
