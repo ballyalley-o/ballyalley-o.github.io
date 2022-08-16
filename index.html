@@ -5,15 +5,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bally alley O</title>
-    <link href="bootstrap.min.css" 
-    rel="stylesheet" 
+    <link href="bootstrap.min.css"
+    rel="stylesheet"
     crossorigin="anonymous">
   </head>
 <style>
 
+.ballybar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: gray;
+  background-color: greenyellow;
+}
+
+.branding {
+   position: relative;
+
+
+}
+
+.nav-links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+}
+
+.nav-links li {
+  list-style: none;
+  color: black;
+
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #2d5735;
+  padding: 1rem;
+  display: block;
+}
+
+.nav-links li a:hover {
+  text-decoration: none;
+  font-weight: bolder;
+  color: black;
+  padding: 1rem;
+  display: block;
+  transition: ease-in-out;
+}
+
+
+.nav-links li:hover {
+  color:black;
+ font-weight: bolder;
+}
+
+.toggle-button {
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+
+
+@media (max-width: 400px) {
+  .toggle-button {
+    display: flex;
+  }
+  .nav-links{
+    width: 100%;
+
+  }
+
+  .ballybar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .nav-links li {
+    text-align: center;
+  }
+
+  .nav-links li a {
+    padding: .5rem 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+  .style-me2 {
+    size: ;
+  }
+
+}
+
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  border-radius: 15px;
+}
+
 div.style-me1, p#style-me2 {
   color: #ffd900;
-} 
+}
 h2, .p {
     margin: 20px;
     padding: 20px;
@@ -57,6 +165,7 @@ p, .title  {
     font-size: 90px;
     margin: 20px;
     transition: .5s;
+    font-style: italic;
 
 }
 
@@ -65,7 +174,7 @@ p, .title  {
 color: transparent;
 }
 
-    
+
 
 .my-descendants-are-styled .my-children-are-styled:hover {
   background-color: red;
@@ -82,6 +191,17 @@ color: transparent;
  font-weight: bolder;
 }
 
+.my-children-are-styled {
+  font-size: 21px;
+  color: #fff;
+  margin: 15px;
+  justify-content: center;
+  text-justify: distribute-all-lines;
+  text-align: center;
+  display: inline-table;
+  padding: 150px;
+}
+
 .one {
  background-color: #ffd900;
 
@@ -96,13 +216,13 @@ color: transparent;
 
 a[data-tool-tip] {
   position: relative;
-  
+
 }
 
 a[data-tool-tip]::before{
   content: '';
   position: relative;
-  
+
 }
 
 
@@ -121,11 +241,37 @@ a[data-tool-tip]:hover::after {
   content: '';
   transform: scale(1);
   bottom: 100;
- 
+
 }
 
 .ballywalk {
   margin: 50px;
+  background-color: aliceblue;
+  padding: -30;
+  border-radius: 100px;
+  position: relative;
+
+
+}
+
+.ballywalk:hover {
+  margin: 50px;
+  background-color: aliceblue;
+  padding: -30;
+  border-radius: 100px;
+  position: relative;
+  bottom: 4px;
+  transition: transform: ease-out 150ms;
+
+
+}
+
+.footer {
+  align-items: center;
+  color: #fff;
+  flex-shrink: 0;
+  margin-bottom: 200px;
+
 
 }
 
@@ -139,7 +285,7 @@ a[data-tool-tip]:hover::after {
 
 @media (min-aspect-ratio: 16/9) {
   .backvid{
-    width: 100%;
+    width:100%;
     height: auto;
   }
 }
@@ -152,13 +298,26 @@ a[data-tool-tip]:hover::after {
 }
 
 .something {
+  content: '';
   color: #fff;
   text-align: center;
   margin: 10rem;
   font-size: 2.1rem;
 }
 
+.something::after {
+  content: attr('');
+  position: relative;
+}
+
+.something:hover::after {
+  content: attr(data-tool-tip);
+  position: relative;
+  color: red;
+}
+
 .donate-btn {
+  content: '';
   position: relative;
   padding: 50px 10px;
   font-family: Arial, Helvetica, sans-serif;
@@ -175,6 +334,7 @@ a[data-tool-tip]:hover::after {
 }
 
 .donate-btn:hover {
+  content: 'code?';
   padding: 50px 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
@@ -197,10 +357,16 @@ a[data-tool-tip]:hover::after {
   transition: .5s;
   background: #f00;
   z-index: 2;
-  
+
 }
 
 .donate-btn:hover:before {
+ content: '';
+ top: 0%;
+}
+
+.donate-btn:hover:after {
+ content: '';
  top: 0%;
 }
 
@@ -221,95 +387,275 @@ margin: 100px;
   background-color: black;
 }
 
+.flexbox-container {
+  display: flex;
+  margin: 100px 100px 0px 100px;
+  justify-content: center;
+  flex-basis: 50%;
+  flex-wrap: wrap;
+
+}
+
+.flexbox-container-2 {
+  display: flex;
+  margin: 0px 100px 100px 100px;
+  justify-content: center;
+  align-content: stretch;
+  flex-wrap: nowrap;
+}
+
+.flexbox-container-2 h1 {
+  display: flex;
+  margin: 0px 100px 100px 100px;
+  flex-wrap: nowrap;
+  top: 100px;
+  font-weight: bolder;
+  font-size: 50px;
+
+
+}
+
+.flexbox-item {
+  flex: 3;
+  width: 200px;
+  margin: .6rem;
+  width: 200px;
+  margin: 10px;
+  align-items: center;
 
 
 
-  </style>
+}
+.flexbox-item-1 {
+  position: relative;
+  flex: 3;
+  width: 200px;
+  margin: 10px;
+  bottom: 0px;
+  background-size: 800px;
+  background-position: center;
+
+
+
+}
+.flexbox-item-1:hover {
+  flex: 3;
+  width: 200px;
+  margin: 10px;
+  bottom: 5px;
+  transition: transform:ease-in-out 150ms ;
+}
+
+.flexbox-item-2 {
+  position: relative;
+  flex: 3;
+  width: 200px;
+  margin: 10px;
+  bottom: 0px;
+  background-size: 800px;
+  background-position: center;
+  background-position-y: -300px;
+
+}
+.flexbox-item-2:hover {
+  flex: 3;
+  width: 200px;
+  margin: 10px;
+  bottom: 5px;
+  transition: transform:ease-in-out 150ms ;
+}
+
+.flexbox-item-3 {
+  position: relative;
+  flex: 3;
+  min-height: 300px;
+  bottom: 0px;
+  overflow: hidden;
+  background-size: 300px;
+  background-position: center;
+}
+
+.flexbox-item-3:hover {
+  flex: 3;
+  width: 200px;
+  margin: 10px;
+  bottom: 5px;
+  transition: transform:ease-in-out 150ms ;
+
+}
+
+.art-1 {
+  background-image: url(projs/flex-1.jpg);
+}
+
+.art-2 {
+  background-image: url(projs/flex-8.JPG);
+}
+
+.desc-1 {
+  display: flex;
+  color: #fff;
+  vertical-align: top;
+  flex-wrap: wrap;
+  text-shadow: 2em;
+  font-size: 100px;
+
+}
+
+.desc-2 {
+  display: flex;
+  color: #fff;
+  vertical-align: top;
+  flex-wrap: wrap;
+  text-shadow: 2em;
+
+}
+
+.desc-3 {
+  display: block;
+  color: #fff;
+  vertical-align: top;
+  flex-wrap: wrap;
+  text-shadow: 2em;
+
+
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: greenyellow;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+</style>
+
+
 <body class="gorilla">
+
   <div>
 
         <video autoplay loop muted plays-inline class="backvid">
           <source src="gorilla.MP4" type="video/MP4">
         </video>
-    
-    <nav>
-      <div class="container">
-        <div class="btn-group btn-group-lg" role="group" aria-label="..." style="background-color:transparent;">
-          <button type="button" class="btn btn-outline-warning">Home</button>
-          <button type="button" class="btn btn-outline-warning">About me</button>
-          <button type="button" class="btn btn-outline-warning">Gallery</button>
 
-       
-        </div>
+<nav class="ballybar">
+    <div class="branding"></div>
+    <a href="#" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="nav-links">
+     <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+     </ul>
 
 
-         <div class="btn-group">
-          <button type="button" class="btn btn-outline-warning dropdown-toggle" data-toggle="dropdown" 
-         aria-haspopup="true" aria-expanded="false" title="Contact us" >
-          <image src="icons/contact_page_white_24dp.svg"></image></button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#"><i class="fab fa-facebook-f icon">Action</i></a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
         </div>
-        </div>
+      </div>
 
       <!-- Navbar content -->
     </nav>
-    <h1 class="front"><p id="style-me2"><i>bally-alley-o<sup>1989</sup></i></p></h1>
-  
-    <h2 class="something">this. is. something.
-    <a href="#" data-tool-tip="else" style="text-decoration:none;"></a> </h2>
+    <h1 class="front"><p id="style-me2">bally-alley-o</p></h1>
+
+    <a href="#"style="text-decoration:none;"></a> </h2>
+    <h2 class="something" data-tool-tip="code?">design. motion. illustration.
+    <a href="#" style="text-decoration:none;"></a> </h2>
 
     <div class="donate">
         <a href="form.html" alt="click the link to donate" style="text-decoration:none">
           <button class="donate-btn" type="button">DONATE</button></a>
         </div>
     <div class="style-me1"></div>
-    
+
   </div>
     <article class="my-descendants-are-styled">
-      
+
       <p class="container">
-      
+
       <div class="my-children-are-styled">
 
-      <pre class="title">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
       Autem recusandae
-      cupiditate iure illo officia, 
+      cupiditate iure illo officia,
       odit animi repellat voluptates quae,
-      delectus, 
-      <span class="baby">distinctio dolore provident in quam ratione ipsum odio! 
+      delectus,
+      <span class="baby">distinctio dolore provident in quam ratione ipsum odio!
       Est,atque?</span>
-    
-    
+
+
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem recusandae
         cupiditate iure illo officia, odit animi repellat voluptates quae,
-        delectus, distinctio dolore provident in quam ratione ipsum odio! 
+        delectus, distinctio dolore provident in quam ratione ipsum odio!
         Est,atque? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem recusandae
         cupiditate iure illo officia, odit animi repellat voluptates quae,
-        delectus,      distinctio dolore provident in quam ratione ipsum odio! 
+        delectus,      distinctio dolore provident in quam ratione ipsum odio!
         Est,atque?Lorem ipsum, dolor sit amet consectetur       adipisicing elit. Autem recusandae
         cupiditate iure illo officia, odit animi   repellat voluptates quae,
-        delectus, distinctio dolore provident in quam ratione ipsum odio! 
-        Est,atque?</pre> </p>
+        delectus, distinctio dolore provident in quam ratione ipsum odio!
+        Est,atque?</p>
       </div>
     </div>
-    <div class="nextsheet"></div>
-  
   </article>
   </body>
-  <script>
+  <div class="flexbox-container">
+    <p class="pFlex">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Molestiae repudiandae doloribus deserunt doloremque nostrum dolores.
+       Assumenda saepe eius rerum fugiat maiores voluptatum,
+       cupiditate recusandae, atque praesentium quis eos fugit repellat?</p>
+    <div class="flexbox-item flexbox-item-1 art-1">
+    </div>
+
+
+    <div class="flexbox-item flexbox-item-2 art-2">
+    </div>
+
+    <div class="flexbox-item flexbox-item-3 art-3">
+    <video src="projs/art-video.mov" plays-inline muted class="artvid"></video>
+    </div>
+  </div>
+  <div class="flexbox-container-2">
+    <div class="desc-1"><h1>illustration</h1></div>
+    <div class="desc-2"><h1>design</h1></div>
+    <div class="desc-3"><h1>motion</h1></div>
+  </div>
+  <script src="scripts.js">
   </script>
 
-  <div class="footer"><img src="bally_walk.gif" style="height:200px;"class="ballywalk">
-  
-  <footer>Copyright Ⓒ </footer>
+<div style="color:#fff ;"><h2 style="color:red">code?</h2></div>
+<div class="footer"><a href="https://github.com/ballyalley-o" alt="github">
+  <img src="bally_walk.gif" style="height:200px;"class="ballywalk"></a>
+
+<footer class="footer">Copyright Ⓒ </footer>
   </img>
   </div>
-  <br><br>
+
 </html>
