@@ -3,7 +3,7 @@ const navLinks = document.getElementsByClassName('nav-links')[0]
 
 toggleButton.addEventListener('click', () => {
     navLinks.classList.toggle('active')
-})
+});
 
 
 const artvid = document.querySelectorAll('.artvid');
